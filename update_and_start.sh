@@ -7,5 +7,7 @@ else
     cd server && git pull && cd -
 fi
 
-docker-compose build --no-cache
+wget $(curl -s https://api.github.com/repos/knitter-org/app/releases/latest | grep "\/bundle\.zip" | cut -d : -f 2,3 | tr -d \") -P web/
+
+docker-compose build
 docker-compose up -d
