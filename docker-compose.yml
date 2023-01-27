@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  web:
+    build: ./web
+    ports:
+    - "9000:80"
+    restart: unless-stopped
+
+  server:
+    build: ./server
+    volumes:
+    - "./data:/usr/src/app/data"
+    expose:
+    - "3000"
+    restart: unless-stopped
