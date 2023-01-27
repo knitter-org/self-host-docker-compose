@@ -1,5 +1,13 @@
 #!/bin/sh
 
+set -e
+
+# Check for availability of required commands
+type git
+type wget
+type curl
+type docker-compose
+
 if [ ! -d server ]
 then
     git clone https://github.com/knitter-org/server.git
