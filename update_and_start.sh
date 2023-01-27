@@ -14,7 +14,7 @@ else
     cd server && git pull && cd -
 fi
 
-curl $(curl -s https://api.github.com/repos/knitter-org/app/releases/latest | grep "\/bundle\.zip" | cut -d : -f 2,3 | tr -d \") -o web/bundle.zip
+curl -L $(curl -s https://api.github.com/repos/knitter-org/app/releases/latest | grep "\/bundle\.zip" | cut -d : -f 2,3 | tr -d \") -o web/bundle.zip
 
 docker-compose build
 docker-compose up -d
